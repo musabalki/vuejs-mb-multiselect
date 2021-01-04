@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+        .tum,.secilen{
+            height:300px;
+            width:300px;
+            border: 1px solid #f1f1f1;
+            margin:5px;
+
+        }
+        .tum{
+            overflow-y: auto;
+        }
+        .secilen{
+            overflow-y: auto;
+        }
+        .tum ul,.secilen ul{
+            margin:0;
+            padding:0;
+
+        }
+        .tum ul li,.secilen ul li{
+            list-style: none;
+            padding:10px;
+            border-bottom: 1px solid #efefef;
+            cursor: pointer;
+            font-size: 14px;;
+        }
+        .tum ul li:hover,.secilen ul li:hover{
+            background-color: #f1f1f1;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+        .title{
+            display: block;
+            text-align: center;
+            padding:10px;background: #565656;color:white;
+        }
+        .selected {
+            background-color: #f1f1f1;
+        }
+        .icon{
+            width: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .fas:nth-child(1),.fas:nth-child(2){
+            font-size: 30px;
+            cursor: pointer;
+            color: #82c91e;
+        }
+        .fas:nth-child(3),.fas:nth-child(4){
+            font-size: 30px;
+            cursor: pointer;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="tum">
+                <span class="title">ALL OPTİONS</span>
+                <ul class="left-ul">
+                    <li v-for="(l,index) in li" v-html="l" :key="index" v-on:dblclick="moveLi(index,$event)">
+                        {{l}}
+                    </li>
+                </ul>
+            </div>
+            <div class="icon"><i class="fas fa-angle-double-right"></i> <i class="fas fa-angle-right"></i><i class="fas fa-angle-left"></i><i class="fas fa-angle-double-left"></i></div><div class="secilen"><span class="title">SELECTED</span> <ul></ul> </div>
+        </div>
+  </div>
+<form action="" method="POST"  style="display: flex;justify-content: center">
+    <select name="result[]" multiple style="display:none" id="select"></select>
+</form>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+        el: '#app',
+        data: {
+          
+            li:["option 1","option 2","option 3"]
+        },
+        methods:{
+            moveLi(l,event){
+                console.log(this.li[l]);
+                console.log(event.target.outerHTML);
+            }
+        }
+        })
+    </script>
+<script>
+    
+    
+ 
+</script>
+</body>
+</html>
