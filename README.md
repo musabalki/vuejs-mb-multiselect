@@ -6,6 +6,7 @@
 <script src="vue-mb-multiselect.js"></script>
 ```
 ```html
+### 2. Create HTML
 <div id="app">
         <div class="container">
             <div class="mb-alloptions">
